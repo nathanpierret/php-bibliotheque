@@ -4,23 +4,27 @@
 abstract class Media {
 #titre : string
 #dureeEmprunt : int
+{abstract} +getInfos()
 }
 
 class Livre {
 -isbn : int
 -auteur : string
 -nombrePages : int
++getInfos()
 }
 
 class BluRay {
 -realisateur : string
 -duree : string
 -anneeSortie : DateTime
++getInfos()
 }
 
 class Magazine {
 -numero : int
 -datePublication : DateTime
++getInfos()
 }
 
 class Adherent {
@@ -29,12 +33,20 @@ class Adherent {
 -nom : string
 -email : string
 -dateAdhesion : DateTime
++genererNumero()
++renouvelerAdhesion()
++getInfosAdherent()
++checkValiditeAdhesion()
 }
 
 class Emprunt {
 -dateEmprunt : DateTime
 -dateRetourEstimee : DateTime
 -dateRetour : ?DateTime
++getInfosEmprunt()
++checkStatusEmprunt()
++checkAlertEmprunt()
++checkDateEmpruntDepassee()
 }
 
 Media <|-- Livre
