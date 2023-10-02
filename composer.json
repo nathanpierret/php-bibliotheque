@@ -1,0 +1,16 @@
+{
+    "name": "pierretn/php-bibliotheque",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Pierretn\\PhpBibliotheque\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nathan Pierret",
+            "email": "pierretnathan49@gmail.com"
+        }
+    ],
+    "require": {}
+}
