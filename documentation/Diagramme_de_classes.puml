@@ -3,8 +3,9 @@
 
 abstract class Media {
 #titre : string
-#dureeEmprunt : int
+#dureeEmprunt : string
 {abstract} +getInfos()
+{abstract} +getDureeEmprunt()
 }
 
 class Livre {
@@ -17,7 +18,7 @@ class Livre {
 class BluRay {
 -realisateur : string
 -duree : string
--anneeSortie : DateTime
+-anneeSortie : string
 +getInfos()
 }
 
@@ -44,9 +45,9 @@ class Emprunt {
 -dateRetourEstimee : DateTime
 -dateRetour : ?DateTime
 +getInfosEmprunt()
-+checkStatusEmprunt()
++checkIfEmprunte()
 +checkAlertEmprunt()
-+checkDateEmpruntDepassee()
++checkDepassementDate()
 }
 
 Media <|-- Livre
