@@ -32,11 +32,13 @@ if ($adherent2->getDateAdhesion()->format('d/m/Y') === "23/05/2023") {
 }
 
 echo "Test : vérification de la validité du numéro d'adhérent \n";
+//Arrange
+$adherent3 = new Adherent("Fanette","Marquis");
 //Act
-$adherent1->genererNumero();
-$numNB = intval(substr($adherent1->getNumeroAdherent(),3));
+$adherent3->genererNumero();
+$numNB = intval(substr($adherent3->getNumeroAdherent(),3));
 //Assertion
-if (str_starts_with($adherent1->getNumeroAdherent(), "AD-") and $numNB >= 0 and $numNB <= 999999) {
+if (str_starts_with($adherent3->getNumeroAdherent(), "AD-") and $numNB >= 0 and $numNB <= 999999) {
     echo GREEN."Test OK".RESET.PHP_EOL;
 } else {
     echo RED."Test pas OK".RESET.PHP_EOL;
@@ -54,9 +56,9 @@ if ($resultat) {
 
 echo "Test : vérification que l'adhésion n'est pas valable (la date d'adhésion doit être dépassée) \n";
 //Arrange
-$adherent3 = new Adherent("Joël","Lucas","10/08/2022");
+$adherent4 = new Adherent("Joël","Lucas","10/08/2022");
 //Act
-$resultat = $adherent3->checkValiditeAdhesion();
+$resultat = $adherent4->checkValiditeAdhesion();
 //Assertion
 if (!$resultat) {
     echo GREEN."Test OK".RESET.PHP_EOL;
@@ -65,10 +67,11 @@ if (!$resultat) {
 }
 
 echo "Test : vérification que l'adhésion se renouvelle \n";
+$adherent5 = new Adherent("Felicienne","Bernier","13/11/2022");
 //Act
-$adherent3->renouvelerAdhesion();
+$adherent5->renouvelerAdhesion();
 //Assertion
-if ($adherent3->getDateAdhesion()->format('d/m/Y') === "10/08/2023") {
+if ($adherent5->getDateAdhesion()->format('d/m/Y') === "13/11/2023") {
     echo GREEN."Test OK".RESET.PHP_EOL;
 } else {
     echo RED."Test pas OK".RESET.PHP_EOL;

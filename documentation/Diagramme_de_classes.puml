@@ -16,7 +16,8 @@ class Livre {
 
 class BluRay {
 -realisateur : string
--duree : string
+-dureeHeures : int
+-dureeMinutes : int
 -anneeSortie : string
 +getInfos()
 }
@@ -47,6 +48,10 @@ class Emprunt {
 +checkIfEmprunte()
 +checkAlertEmprunt()
 +checkDepassementDate()
+}
+
+class Bibliotheque {
+
 }
 
 Media <|-- Livre

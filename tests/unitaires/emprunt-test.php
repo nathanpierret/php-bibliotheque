@@ -75,10 +75,12 @@ if ($resultat) {
 }
 
 echo "Test : vérification qu'un emprunt est en alerte (date de retour non précisée et dépassement de date de retour estimée)\n";
+$livre2 = new Livre("La soupe aux choux",9785642316452,"Nadine Busson",315);
+$emprunt4 = new Emprunt($livre2,$adherent);
 //Arrange
-$emprunt2->setDateEmprunt("12/09/2023");
+$emprunt4->setDateEmprunt("01/09/2023");
 //Act
-$resultat = $emprunt2->checkAlertEmprunt();
+$resultat = $emprunt4->checkAlertEmprunt();
 //Assertion
 if ($resultat) {
     echo GREEN."Test OK".RESET.PHP_EOL;
@@ -88,10 +90,12 @@ if ($resultat) {
 
 echo "Test : vérification que la durée d'un emprunt est dépassée (date de retour précisée et dépassement de date de retour estimée)\n";
 //Arrange
-$emprunt3->setDateEmprunt("14/07/2023");
-$emprunt3->setDateRetour("01/08/2023");
+$magazine2 = new Magazine("National Geographic Magazine",764,"03/07/2023");
+$emprunt5 = new Emprunt($magazine2,$adherent);
+$emprunt5->setDateEmprunt("14/07/2023");
+$emprunt5->setDateRetour("01/08/2023");
 //Act
-$resultat = $emprunt3->checkDepassementDate();
+$resultat = $emprunt5->checkDepassementDate();
 //Assertion
 if ($resultat) {
     echo GREEN."Test OK".RESET.PHP_EOL;
