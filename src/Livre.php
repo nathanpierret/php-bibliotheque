@@ -40,11 +40,6 @@ class Livre extends Media
         return $this->nombrePages;
     }
 
-    public function getDureeEmprunt(): string
-    {
-        return $this->dureeEmprunt;
-    }
-
     public function getInfos(): Livre
     {
         return $this;

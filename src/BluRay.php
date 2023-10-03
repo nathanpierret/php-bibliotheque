@@ -41,11 +41,6 @@ class BluRay extends Media
         return $this->anneeSortie;
     }
 
-    public function getDureeEmprunt(): string
-    {
-        return $this->dureeEmprunt;
-    }
-
     public function getInfos(): BluRay
     {
         return $this;

@@ -32,11 +32,6 @@ class Magazine extends Media
         return $this->datePublication->format("d/m/Y");
     }
 
-    public function getDureeEmprunt(): string
-    {
-        return $this->dureeEmprunt;
-    }
-
     public function getInfos(): Magazine
     {
         return $this;

@@ -20,5 +20,10 @@ abstract class Media
         return $this->titre;
     }
 
+    public function getDureeEmprunt(): string
+    {
+        return $this->dureeEmprunt;
+    }
+
     abstract public function getInfos();
 }

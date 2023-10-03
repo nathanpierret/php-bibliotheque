@@ -5,7 +5,6 @@ abstract class Media {
 #titre : string
 #dureeEmprunt : string
 {abstract} +getInfos()
-{abstract} +getDureeEmprunt()
 }
 
 class Livre {
