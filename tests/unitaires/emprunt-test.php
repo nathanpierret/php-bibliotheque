@@ -40,7 +40,7 @@ if ($emprunt1->getDateRetourEstimee()->format('d/m/Y') === $dateRetourTest->form
 
 echo "Test : la date de retour estimée d'un Blu-Ray doit être égale à la date d'emprunt + 15 jours \n";
 //Arrange
-$bluray = new BluRay("Titanic","James Cameron","3h14m","1997");
+$bluray = new BluRay("Titanic","James Cameron",3,14,"1997");
 $emprunt2 = new Emprunt($bluray,$adherent);
 $dateRetourTest = clone $emprunt2->getDateEmprunt();
 $dateRetourTest->modify("+15 days");

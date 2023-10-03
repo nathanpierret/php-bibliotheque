@@ -19,15 +19,14 @@ class Emprunt
         $this->dateEmprunt = new \DateTime();
         $this->media = $media;
         $this->adherent = $adherent;
-        $this->dateRetourEstimee = clone $this->dateEmprunt;
-        $this->dateRetourEstimee->add(\DateInterval::createFromDateString($this->media->getDureeEmprunt()));
+        $this->dateRetourEstimee = (new \DateTime())->modify("+{$this->media->getDureeEmprunt()}");
     }
 
     public function setDateEmprunt(string $dateEmprunt): void
     {
         $this->dateEmprunt = \DateTime::createFromFormat("d/m/Y", $dateEmprunt);
         $this->dateRetourEstimee = clone $this->dateEmprunt;
-        $this->dateRetourEstimee->add(\DateInterval::createFromDateString($this->media->getDureeEmprunt()));
+        $this->dateRetourEstimee->modify("+{$this->media->getDureeEmprunt()}");
     }
 
     public function getDateEmprunt(): \DateTime
