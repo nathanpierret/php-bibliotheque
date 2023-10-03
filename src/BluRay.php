@@ -23,6 +23,7 @@ class BluRay extends Media
         $this->realisateur = $realisateur;
         $this->duree = $duree;
         $this->anneeSortie = $anneeSortie;
+        $this->dureeEmprunt = "15 days";
     }
 
     public function getRealisateur(): string
@@ -42,7 +43,6 @@ class BluRay extends Media
 
     public function getDureeEmprunt(): string
     {
-        $this->dureeEmprunt = "15 days";
         return $this->dureeEmprunt;
     }
 

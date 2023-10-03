@@ -22,7 +22,7 @@ class Livre extends Media
         $this->isbn = $isbn;
         $this->auteur = $auteur;
         $this->nombrePages = $nombrePages;
-        $this->dureeEmprunt = 21;
+        $this->dureeEmprunt = "21 days";
     }
 
     public function getIsbn(): int
@@ -42,7 +42,6 @@ class Livre extends Media
 
     public function getDureeEmprunt(): string
     {
-        $this->dureeEmprunt = "21 days";
         return $this->dureeEmprunt;
     }
 

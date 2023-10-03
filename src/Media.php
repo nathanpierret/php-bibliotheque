@@ -20,7 +20,5 @@ abstract class Media
         return $this->titre;
     }
 
-    abstract public function getDureeEmprunt();
-
     abstract public function getInfos();
 }

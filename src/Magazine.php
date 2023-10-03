@@ -19,6 +19,7 @@ class Magazine extends Media
         parent::__construct($titre);
         $this->numero = $numero;
         $this->datePublication = \DateTime::createFromFormat("d/m/Y",$datePublication);
+        $this->dureeEmprunt = "10 days";
     }
 
     public function getNumero(): int
@@ -33,7 +34,6 @@ class Magazine extends Media
 
     public function getDureeEmprunt(): string
     {
-        $this->dureeEmprunt = "10 days";
         return $this->dureeEmprunt;
     }
 
