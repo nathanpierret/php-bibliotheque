@@ -11,16 +11,23 @@ class Emprunt
     private Adherent $adherent;
 
     /**
-     * @param \DateTime $dateEmprunt
      * @param Media $media
      * @param Adherent $adherent
      */
-    public function __construct(\DateTime $dateEmprunt, Media $media, Adherent $adherent)
+    public function __construct(Media $media, Adherent $adherent)
     {
-        $this->dateEmprunt = $dateEmprunt;
+        $this->dateEmprunt = new \DateTime();
         $this->media = $media;
         $this->adherent = $adherent;
-        $this->dateRetourEstimee = $this->dateEmprunt->add(\DateInterval::createFromDateString($this->media->getDureeEmprunt()));
+        $this->dateRetourEstimee = clone $this->dateEmprunt;
+        $this->dateRetourEstimee->add(\DateInterval::createFromDateString($this->media->getDureeEmprunt()));
+    }
+
+    public function setDateEmprunt(string $dateEmprunt): void
+    {
+        $this->dateEmprunt = \DateTime::createFromFormat("d/m/Y", $dateEmprunt);
+        $this->dateRetourEstimee = clone $this->dateEmprunt;
+        $this->dateRetourEstimee->add(\DateInterval::createFromDateString($this->media->getDureeEmprunt()));
     }
 
     public function getDateEmprunt(): \DateTime
@@ -36,6 +43,11 @@ class Emprunt
     public function getDateRetour(): ?\DateTime
     {
         return $this->dateRetour;
+    }
+
+    public function setDateRetour(string $dateRetour): void
+    {
+        $this->dateRetour = \DateTime::createFromFormat("d/m/Y",$dateRetour);
     }
 
     public function getMedia(): Media
@@ -64,15 +76,27 @@ class Emprunt
 
     public function checkAlertEmprunt(): bool
     {
-        if (new \DateTime() > $this->dateRetourEstimee and !isset($this->dateRetour)) {
-            return true;
+        if ($this->checkIfEmprunte()) {
+            if (new \DateTime() > $this->dateRetourEstimee) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
     }
 
-    public function checkDepassementDate()
+    public function checkDepassementDate(): bool
     {
-
+        if (!$this->checkIfEmprunte()) {
+            if ($this->dateRetour > $this->dateRetourEstimee) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }

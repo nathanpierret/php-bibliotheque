@@ -52,7 +52,7 @@ if ($resultat) {
     echo RED."Test pas OK".RESET.PHP_EOL;
 }
 
-echo "Test : vérification que l'adhésion n'est pas valable (la date d'adhésion doit être dépassée)";
+echo "Test : vérification que l'adhésion n'est pas valable (la date d'adhésion doit être dépassée) \n";
 //Arrange
 $adherent3 = new Adherent("Joël","Lucas","10/08/2022");
 //Act
