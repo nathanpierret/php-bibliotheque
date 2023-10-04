@@ -50,9 +50,19 @@ class Emprunt {
 +checkDepassementDate()
 }
 
+class Bibliotheque {
+-nom : string
++inscrireAdherent()
++ajouterMedia()
++emprunterMedia()
+}
+
 Media <|-- Livre
 Media <|-- Magazine
 Media <|-- BluRay
-Adherent "1..1 " --> "0..* " Emprunt : " effectue"
-Emprunt "0..1 " <-- "1..1 " Media : " est choisi dans"
+Adherent "1..1  " --> "0..* " Emprunt : " effectue"
+Emprunt "0..1  " <-- "1..1  " Media : " est choisi dans"
+Bibliotheque "1..1 " --> "0..*" Media : " est stocké dans"
+Bibliotheque "1..1 " --> "  0..*" Emprunt : " est répertorié dans"
+Adherent "0..*" <-- "1..1   " Bibliotheque : "s'inscrit dans"
 @enduml
