@@ -50,10 +50,6 @@ class Emprunt {
 +checkDepassementDate()
 }
 
-class Bibliotheque {
-
-}
-
 Media <|-- Livre
 Media <|-- Magazine
 Media <|-- BluRay
