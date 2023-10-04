@@ -3,7 +3,7 @@
 use App\Adherent;
 
 require "./vendor/autoload.php";
-require "./tests/utils/couleurs.php";
+require "./test/utils/couleurs.php";
 
 echo PHP_EOL;
 echo GREEN_BACKGROUND.BLACK;
